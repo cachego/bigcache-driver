@@ -44,15 +44,10 @@ func (bcd bigCacheDriver) Del(key string) error {
 	return bcd.bigcache.Delete(key)
 }
 
-func (bcd bigCacheDriver) Has(key string) (bool, error) {
-	_, ok, err := bcd.Get(key)
-	return ok, err
-}
-
 func NewDriver(bc *bigcache.BigCache) cache.DriverInterface {
 	return bigCacheDriver{bigcache: bc}
 }
 
-func NewCache(bc *bigcache.BigCache, args ...interface{}) *cache.Cache {
+func NewCache(bc *bigcache.BigCache, args ...interface{}) cache.Interface {
 	return cache.New(append(args, NewDriver(bc))...)
 }

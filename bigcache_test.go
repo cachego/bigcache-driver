@@ -28,7 +28,7 @@ func TestBigCache(t *testing.T) {
 		assert.Equal(t, bs, nbs)
 
 		assert.Nil(t, bcd.Del(key))
-		ok, err = bcd.Has(key)
+		_, ok, err = bcd.Get(key)
 		assert.Nil(t, err)
 		assert.False(t, ok)
 	}
