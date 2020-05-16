@@ -25,6 +25,9 @@ func (bcd bigCacheDriver) Get(key string) ([]byte, bool, error) {
 		return nil, false, err
 	}
 	val, ok := item.GetValue()
+	if ok == false {
+		_ = bcd.Del(key)
+	}
 	return val, ok, err
 }
 
