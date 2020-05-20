@@ -37,12 +37,12 @@ func TestBigCache(t *testing.T) {
 	var tmp []string
 
 	for key, val := range testDataMap {
-		assert.True(t, bcc.Set(key, val, ttl))
-		assert.True(t, bcc.Get(key, &tmp))
+		assert.Nil(t, bcc.Set(key, val, ttl))
+		assert.Nil(t, bcc.Get(key, &tmp))
 		assert.EqualValues(t, val, tmp)
 
 		time.Sleep(ttl)
 
-		assert.False(t, bcc.Has(key))
+		assert.NotNil(t, bcc.Has(key))
 	}
 }
