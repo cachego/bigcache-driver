@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/allegro/bigcache v1.2.1
-	github.com/easy-cache/cache v0.0.0-20200520023314-97a12c60426a
-	github.com/stretchr/testify v1.4.0
+	github.com/easy-cache/cache v0.0.0-20210515102918-e139633ba008
+	github.com/stretchr/testify v1.5.1
+	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
